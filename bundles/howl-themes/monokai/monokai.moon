@@ -275,7 +275,7 @@ return {
       color: yellow
 
     string:
-      color: yellow
+      color: green
 
     regex:
       color: green
