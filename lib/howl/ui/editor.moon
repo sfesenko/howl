@@ -135,8 +135,10 @@ class Editor extends PropertyObject
     @completion_popup = CompletionPopup self
 
     @header = IndicatorBar 'header'
+    @footer = IndicatorBar 'footer'
     content_box = ContentBox 'editor', @view\to_gobject!, {
       header: @header\to_gobject!,
+      footer: @footer\to_gobject!
     }
     @bin = content_box\to_gobject!
     @bin.can_focus = true
@@ -694,9 +696,7 @@ class Editor extends PropertyObject
     def = indicators[id]
     error 'Invalid indicator id "' .. id .. '"', 2 if not def
     y, x = def.placement\match('^(%w+)_(%w+)$')
-    bar = y == 'top' and @header -- or @footer
-    if y != 'top'
-        print('Adding indicator to footer:' .. id)
+    bar = y == 'top' and @header or @footer
     widget = def.factory and def.factory! or nil
     indic = bar\add x, id, widget
     indics[id] = indic
