@@ -363,6 +363,7 @@ class Application extends PropertyObject
       files, hints = parse_path_args paths, command_line.cwd
       if #files > 0
         app\open files, table.concat(hints, ',')
+        @window\present!
       else
         app\activate!
 

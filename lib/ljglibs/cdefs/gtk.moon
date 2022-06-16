@@ -256,6 +256,7 @@ ffi.cdef [[
   void gtk_window_unfullscreen (GtkWindow *window);
   void gtk_window_maximize (GtkWindow *window);
   void gtk_window_unmaximize (GtkWindow *window);
+  void gtk_window_present (GtkWindow* window);
 
   /* GtkOffscreenWindow */
   typedef struct {} GtkOffscreenWindow;

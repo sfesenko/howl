@@ -75,6 +75,7 @@ core.define 'GtkWindow < GtkBin', {
   unfullscreen: => C.gtk_window_unfullscreen @
   maximize: => C.gtk_window_maximize @
   unmaximize: => C.gtk_window_unmaximize @
+  present: => C.gtk_window_present @
 
   get_size: =>
     sizes = ffi.new 'gint [2]'

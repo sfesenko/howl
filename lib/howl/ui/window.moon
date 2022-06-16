@@ -208,6 +208,8 @@ class Window extends PropertyObject
 
     Gdk.Pixbuf.get_from_window window, x, y, w, h
 
+  present: => @win\present!
+
   _as_rows: (views) =>
     rows = {}
     row = {}
