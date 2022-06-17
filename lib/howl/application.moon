@@ -363,7 +363,8 @@ class Application extends PropertyObject
       files, hints = parse_path_args paths, command_line.cwd
       if #files > 0
         app\open files, table.concat(hints, ',')
-        @window\present!
+        if config.focus_on_open
+          @window\present!
       else
         app\activate!
 
@@ -663,6 +664,13 @@ config.define
 config.define
   name: 'autoclose_single_buffer'
   description: 'When only one, empty buffer is open, automatically close it when another is created'
+  default: true
+  type_of: 'boolean'
+  scope: 'global'
+
+config.define
+  name: 'focus_on_open'
+  description: 'Focus window on file open'
   default: true
   type_of: 'boolean'
   scope: 'global'
